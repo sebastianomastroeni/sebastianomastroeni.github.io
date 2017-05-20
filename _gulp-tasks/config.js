@@ -9,16 +9,15 @@ var makePath = (root, obj) => {
 
 var basedir = './';
 var config = {
-    dev: makePath(basedir + 'src/', {
+    dev: makePath(basedir + '_src/', {
         root: '',
         sass: 'scss/',
-        js: 'js/',
-        fonts: 'fonts/'
+        js: 'js/'
     }),
-    prod: makePath(basedir+ 'build/', {
+    prod: makePath(basedir+ 'assets/', {
         root: '',
-        css: 'assets/css/',
-        js: 'assets/js/',
+        css: 'css/',
+        js: 'js/',
     }),
     isProduction : function() {
         return process.env.NODE_ENV == 'production';

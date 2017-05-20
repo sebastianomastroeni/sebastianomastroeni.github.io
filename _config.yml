@@ -8,7 +8,11 @@ url: ""
 # Build settings
 markdown: kramdown
 permalink: none
-source: src
+destination: build
 exclude:
-  - /scss
-  - /js
+  - Gemfile
+  - Gemfile.lock
+  - gulpfile.js
+  - package.json
+  - yarn.lock
+  - node_modules

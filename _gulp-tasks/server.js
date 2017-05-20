@@ -8,7 +8,7 @@ gulp.task('server', function () {
 	browserSync.init({
 		logLevel: 'info',
         server: {
-            baseDir: config.prod.root
+            baseDir: 'build'
         }
 	});
 });

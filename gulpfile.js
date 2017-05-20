@@ -2,8 +2,8 @@
 
 var gulp = require('gulp'),
     watch = require('gulp-watch'),
-    config =  require('./gulp-tasks/config.js'),
-    printSuccess = require('./gulp-tasks/printSuccess.js'),
+    config =  require('./_gulp-tasks/config.js'),
+    printSuccess = require('./_gulp-tasks/printSuccess.js'),
     runSequence = require('run-sequence'),
     browserSync = require('browser-sync'),
     ghPages     = require('gulp-gh-pages'),
@@ -11,7 +11,7 @@ var gulp = require('gulp'),
 
 var reload = browserSync.reload;
 
-require('require-dir')('./gulp-tasks');
+require('require-dir')('./_gulp-tasks');
 
 gulp.task('apply-prod-environment', function() {
     process.stdout.write("Setting NODE_ENV to 'production'" + "\n");
@@ -32,7 +32,7 @@ gulp.task('watch', ['jekyll','server','browserify'], function() {
     watch(config.dev.sass+'**/*.scss', { usePolling: true }, function() {
         gulp.start(['sass']);
     });
-    watch(config.dev.root+'**/*.html', { usePolling: true }, function() {
+    watch('./**/*.html', { usePolling: true }, function() {
         gulp.start(['jekyll']);
     });
 });

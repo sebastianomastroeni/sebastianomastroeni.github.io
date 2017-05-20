@@ -9,7 +9,7 @@ var config = require('./config.js'),
     printError = require('./printError.js');
 
 gulp.task('jekyll', function () {
-    var buildCommand = 'jekyll build --destination build --config config/_config.yml,config/links.yml'
+    var buildCommand = 'jekyll build';
     exec(buildCommand, function(err, stdout, stderr){
         if(err) {
            printError('Jekyll: ', err); 
