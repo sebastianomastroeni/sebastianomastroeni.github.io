@@ -28,11 +28,11 @@ gulp.task('clean', function () {
         .pipe(clean());
 });
 
-gulp.task('watch', ['jekyll','server','browserify'], function() {
+gulp.task('watch', ['jekyll','sass','server','browserify'], function() {
     watch(config.dev.sass+'**/*.scss', { usePolling: true }, function() {
         gulp.start(['sass']);
     });
-    watch('./**/*.html', { usePolling: true }, function() {
+    watch(['**/*.html','!build/*.html'], { usePolling: true }, function() {
         gulp.start(['jekyll']);
     });
 });

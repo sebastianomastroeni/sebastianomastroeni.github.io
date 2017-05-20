@@ -1,6 +1,10 @@
-.header {
+.m-header {
     padding: 10vh 0 0 9vw;
+    position: absolute;
+    left: 0;
+    top: 0;
     &__title {
-
+        font-size: rem(16);
+        line-height: 1.2;
     }
 }   

@@ -1,7 +1,13 @@
 ---
 layout: default
 ---
-
-{% for link in site.data.links %}
-    <p>{{link.text}}</p>
-{% endfor %}
+<div class="m-list-wrapper">
+    <ul class="m-list"> 
+        {% for link in site.data.links %}
+            <li class="m-list__item">
+                <a href="{{link.url}}">{{link.text}}</a>
+            </li>
+        {% endfor %} 
+    </ul>
+    <span class="m-list-cta">Tell Me More</span>
+</div> 

@@ -1,8 +1,7 @@
 "use strict";
 
-require('./sass');
-require('./javascripts');
 var gulp = require('gulp'),
+    browserSync = require('browser-sync'),
     exec = require('child_process').exec;
 
 var config = require('./config.js'),
@@ -14,6 +13,6 @@ gulp.task('jekyll', function () {
         if(err) {
            printError('Jekyll: ', err); 
         }
-        gulp.start(['sass','browserify']);
+        browserSync.reload();
     });
 });
