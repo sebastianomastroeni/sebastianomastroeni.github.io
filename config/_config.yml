@@ -1,0 +1,14 @@
+# Site settings
+title: Sebastiano
+retailer: Sebastiano
+description: "Sebastiano"
+baseurl: ""
+url: ""
+
+# Build settings
+markdown: kramdown
+permalink: none
+source: src
+exclude:
+  - /scss
+  - /js
