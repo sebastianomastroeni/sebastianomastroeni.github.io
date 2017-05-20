@@ -2,6 +2,6 @@
 layout: default
 ---
 
-{% for link in site.links %}
-    {{link}} 
+{% for link in site.data.links %}
+    <p>{{link.text}}</p>
 {% endfor %}
