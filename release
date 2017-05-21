@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Retrive current active branch
+get_current_branch() {
+    echo `git rev-parse --abbrev-ref HEAD`
+}
+
+# Check if current branch is master
+# If current branch isn't master, then exit with status=1
+CURRENT_BRANCH=$(get_current_branch)
+
+if [ $CURRENT_BRANCH != "develop" ]
+  then
+    echo "Unable to release. To proceed with a new release change to current branch to MASTER."
+    exit 1
+fi
+
+# Update master branch
+git pull --rebase origin develop
+
+# Update repository libraries dependencies
+yarn install
+
+# Compile static assets
+gulp build
+
+# Tag new release
+git checkout -b releasing
+git add -f build MANIFEST
+git rm -r gulp-tasks src .gitignore .nvmrc gulpfile.js package.json README.md release yarn.lock
+git commit -m "New $RELEASE release"
+git tag -a $RELEASE -m "New $RELEASE release"
+git push indesit $RELEASE
+
+#Back to master
+git checkout develop
+
+#Delete releasing branch
+git branch -D releasing
+
+#Update MANIFEST
+$(update_release)
+git add MANIFEST
+git commit -m "Updated release version"
+
+#Push to both repos
+echo 'Pushing to origin master'
+git push origin master
+echo 'Pushing to indesit master'
+git push indesit master
+echo 'Switching to develop'
+git checkout develop
+

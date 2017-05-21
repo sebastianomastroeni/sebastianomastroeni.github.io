@@ -5,9 +5,18 @@ body {
     font-family: $mainFont;
     font-weight: 500;
     font-size: rem(16);
+    letter-spacing: .08em;
     color: map-get($colors,black);
     background:  map-get($colors,yellow);
     overflow: hidden;
     height: 100%;
     width: 100%;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    @include breakpoint($desktop) {
+        min-height: 500px; 
+    }
 }
+

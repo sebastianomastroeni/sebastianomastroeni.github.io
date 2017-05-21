@@ -6,22 +6,47 @@
 .m-list-cta {
     position: absolute;
     left: 50%;
+    // bottom: 15vh;
     top: 50%;
     text-transform: uppercase;
     background:map-get($colors,black);
     color: map-get($colors,white);
-    padding: rem(7) rem(10);
-    transform: translateX(-50%);
+    padding: rem(8) rem(10);
+    transform: translate(-50%,100px) ;
     z-index: 3;
     cursor: pointer;
     display: inline-block;
     white-space: nowrap;
-    font-size: rem(10);
+    font-size: rem(16);
+    @include breakpoint($phablet) {
+        font-size: rem(18)
+    }
+    @include breakpoint($tablet) {
+        font-size: rem(20);
+        padding: rem(10) rem(12);
+        // bottom: 20vh;
+    }
+    @include breakpoint($desktop) {
+        // bottom: 32vh;
+    }
+    &:active {
+        transition: transform .1s;
+        transform: translateX(-50%) translateY(100px) scale(.95);
+    }
 }
 .m-list {
-    text-align: left;
-    font-size: rem(20);
+    text-align: center;
+    font-size: rem(19);
     height: 100%;
+    @include breakpoint($phablet) {
+        font-size: rem(22)
+    }
+    @include breakpoint($tablet) {
+        font-size: rem(26)
+    }
+    @include breakpoint($desktop) {
+        font-size: rem(31)
+    }
     &__item {
         position: absolute;
         left: 50%;
@@ -30,71 +55,54 @@
         transform: translate(-50%,-50%);
         padding: 0 9vw;
         z-index: 1;
+        display: none;
         a {
             text-decoration: none;
             color: map-get($colors,black);
             font-weight: 700;
             display: block;
             overflow: hidden;
-            opacity: 0;
-            transition: all .5s ease-in-out;
-            transform: translateY(50vh);
-            // color: transparent;
-        }
-
-        // .line-wrap{
-        //     position: relative;
-        //     display: block;
-        //     width: 100%;
-        //     color: transparent;
-        //     transition: color 10ms;
-        //     transition-delay: 500ms;
-        //     &:nth-child(2){
-        //         transition-delay: 1000ms*4/6;
-        //     }
-        //     &:nth-child(3){
-        //         transition-delay: 1000ms*5/6;
-        //     }
-        //     &:after{
-        //         content: '';
-        //         position: absolute;
-        //         width: 100%;
-        //         height: 100%;
-        //         top: 0;
-        //         left: 0;
-        //         background: white;
-        //         transform: translateX(-100%);
-        //         transform-origin: 0% 50%;
-        //     }
-        // }
-        &--show{
-            z-index: 2;
-            // .line-wrap{
-            //     color: black;
+            // > div {
+            //     position: relative;
+            //     overflow: hidden;
+            //     &:after {
+            //         content: '';
+            //         position: absolute;
+            //         display: block;
+            //         left: 0;
+            //         right: 0;
+            //         height: 100%;
+            //         top: 0;
+            //         transition: transform .3s;
+            //         background:map-get($colors,yellow);
+            //     }
             // }
-            // .line-wrap:after{
-            //     transform: translateX(100%);
-            //     transition: transform 1000ms ease-in-out;
-            // }
-            // .line-wrap:nth-child(2):after{
-            //     transition-delay: 1000ms*1/6;
-            // }
-            // .line-wrap:nth-child(3):after{
-            //     transition-delay: 1000ms*2/6;
-            // }
-
-            a {
-                opacity: 1;
-                // transition-delay:.2s;
-                transform: translateY(0);
+            &:hover {
+                text-decoration: line-through;
             }
-
+            &:visited {
+                text-decoration: line-through;
+            }
+            br {
+                display: none;
+                @include breakpoint($tablet) {
+                    display: inline;
+                }
+            }
         }
 
-        &--hide a {
-            opacity: 0;
-            transform: translateY(-50vh);
+        &.show {
+            z-index: 2;
+            display: block;
         }
 
+        // &.show a > div:after {
+        //     transform: translateY(100%);
+        // }
+
+        // display: none;
+        // &:nth-child(8) {
+        //     display: block;
+        // }
     }
 }
