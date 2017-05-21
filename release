@@ -15,7 +15,7 @@ if [ $CURRENT_BRANCH != "develop" ]
     exit 1
 fi
 
-# Update master branch
+# Update develop branch
 git pull --rebase origin develop
 
 # Update repository libraries dependencies
@@ -26,28 +26,14 @@ gulp build
 
 # Tag new release
 git checkout -b releasing
-git add -f build MANIFEST
-git rm -r gulp-tasks src .gitignore .nvmrc gulpfile.js package.json README.md release yarn.lock
-git commit -m "New $RELEASE release"
-git tag -a $RELEASE -m "New $RELEASE release"
-git push indesit $RELEASE
+git add -f assets
+git rm -r _gulp-tasks _src .ruby-version .gitignore .nvmrc gulpfile.js package.json release yarn.lock
+git commit -m "New release"
+git push origin releasing:gh-pages
 
 #Back to master
 git checkout develop
 
 #Delete releasing branch
 git branch -D releasing
-
-#Update MANIFEST
-$(update_release)
-git add MANIFEST
-git commit -m "Updated release version"
-
-#Push to both repos
-echo 'Pushing to origin master'
-git push origin master
-echo 'Pushing to indesit master'
-git push indesit master
-echo 'Switching to develop'
-git checkout develop
 
