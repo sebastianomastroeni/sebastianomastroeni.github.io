@@ -6,13 +6,12 @@
 .m-list-cta {
     position: absolute;
     left: 50%;
-    // bottom: 15vh;
     top: 50%;
     text-transform: uppercase;
     background:map-get($colors,black);
     color: map-get($colors,white);
     padding: rem(8) rem(10);
-    transform: translate(-50%,100px) ;
+    transform: translate(-50%,85px);
     z-index: 3;
     cursor: pointer;
     display: inline-block;
@@ -24,14 +23,30 @@
     @include breakpoint($tablet) {
         font-size: rem(20);
         padding: rem(10) rem(12);
-        // bottom: 20vh;
+        transform: translate(-50%,100px);
     }
-    @include breakpoint($desktop) {
-        // bottom: 32vh;
+    // @include breakpoint($wide) {
+    //     font-size: rem(35);
+    //     padding: rem(15) rem(18);
+    //     transform: translate(-50%,150px);
+    // }
+    @include breakpoint($large) {
+        font-size: rem(48);
+        padding: rem(25) rem(38);
+        transform: translate(-50%,250px);
     }
     &:active {
         transition: transform .1s;
-        transform: translateX(-50%) translateY(100px) scale(.95);
+        transform: translateX(-50%) translateY(85px) scale(.95);
+        @include breakpoint($tablet) {
+            transform: translateX(-50%) translateY(100px) scale(.95);
+        }
+        // @include breakpoint($wide) {
+        //     transform: translateX(-50%) translateY(150px) scale(.95);
+        // }
+        @include breakpoint($large) {
+            transform: translateX(-50%) translateY(250px) scale(.95);
+        }
     }
 }
 .m-list {
@@ -46,6 +61,12 @@
     }
     @include breakpoint($desktop) {
         font-size: rem(31)
+    }
+    // @include breakpoint($wide) {
+    //     font-size: rem(45);
+    // }
+    @include breakpoint($large) {
+        font-size: rem(72);
     }
     &__item {
         position: absolute;
@@ -62,30 +83,12 @@
             font-weight: 700;
             display: block;
             overflow: hidden;
-            // > div {
-            //     position: relative;
-            //     overflow: hidden;
-            //     &:after {
-            //         content: '';
-            //         position: absolute;
-            //         display: block;
-            //         left: 0;
-            //         right: 0;
-            //         height: 100%;
-            //         top: 0;
-            //         transition: transform .3s;
-            //         background:map-get($colors,yellow);
-            //     }
-            // }
-            &:hover {
-                text-decoration: line-through;
-            }
-            &:visited {
+            &:hover,&:active {
                 text-decoration: line-through;
             }
             br {
                 display: none;
-                @include breakpoint($tablet) {
+                @include breakpoint($desktop + 1) {
                     display: inline;
                 }
             }
@@ -95,14 +98,5 @@
             z-index: 2;
             display: block;
         }
-
-        // &.show a > div:after {
-        //     transform: translateY(100%);
-        // }
-
-        // display: none;
-        // &:nth-child(8) {
-        //     display: block;
-        // }
     }
 }

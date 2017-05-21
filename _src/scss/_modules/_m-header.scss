@@ -15,5 +15,11 @@
         @include breakpoint($desktop) {
             font-size: rem(23)
         }
+        // @include breakpoint($wide) {
+        //     font-size: rem(35)
+        // }
+        @include breakpoint($large) {
+            font-size: rem(52);
+        }
     }
 }   
