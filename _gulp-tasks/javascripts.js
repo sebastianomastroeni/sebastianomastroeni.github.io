@@ -1,6 +1,7 @@
 "use strict";
 
 var gulp = require('gulp'),
+    gulpif = require('gulp-if'),
     browserify = require('browserify'),
     babelify = require('babelify'),
     printError = require('./printError.js'),
@@ -31,7 +32,7 @@ gulp.task('browserify', function() {
                 printError('browserify', err.message);
             })
         .pipe(source('app.js'))
-        .pipe(gulp.dest('build/'+config.prod.js))
+        .pipe(gulpif(!config.isProduction(), gulp.dest('build/'+config.prod.js)))
         .pipe(gulp.dest(config.prod.js))
         .pipe(reload({stream: true}));
     };

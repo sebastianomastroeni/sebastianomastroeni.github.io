@@ -24,7 +24,7 @@ gulp.task('apply-prod-environment', function() {
 });
 
 gulp.task('clean', function () {
-    return gulp.src('web', {read: false})
+    return gulp.src(['build','assets'], {read: false})
         .pipe(clean());
 });
 
@@ -46,6 +46,7 @@ gulp.task('build', function(){
         'browserify',
         'sass',
         'uglify:js',
-        'uglify:css'
+        'uglify:css',
+        'jekyll'
     );
 });

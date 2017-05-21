@@ -4,6 +4,7 @@ var config = require('./config.js'),
     printError = require('./printError.js');
 
 var gulp = require('gulp'),
+    gulpif = require('gulp-if'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     sass = require('gulp-sass'),
@@ -23,7 +24,7 @@ gulp.task('sass', function(cb) {
             browsers: ['last 3 version', 'safari 7', 'ie 10', 'opera 12.1', 'ios 6', 'android 4']
         }))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('build/'+config.prod.css))
+        .pipe(gulpif(!config.isProduction(), gulp.dest('build/'+config.prod.css)))
         .pipe(gulp.dest(config.prod.css))
         .pipe(browserSync.stream());
 });
