@@ -17,6 +17,7 @@ fi
 
 # Update develop branch
 git pull --rebase origin develop
+git push origin :gh-pages
 
 # Update repository libraries dependencies
 yarn install
