@@ -17,6 +17,7 @@
     display: inline-block;
     white-space: nowrap;
     font-size: rem(16);
+    font-weight: 700;
     @include breakpoint($phablet) {
         font-size: rem(18)
     }
@@ -80,7 +81,7 @@
         a {
             text-decoration: none;
             color: map-get($colors,black);
-            font-weight: 900;
+            font-weight: 700;
             vertical-align: baseline;
             position: relative;
             @include breakpoint($tablet) {
