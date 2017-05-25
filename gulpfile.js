@@ -42,6 +42,7 @@ gulp.task('default',['watch']);
 gulp.task('build', function(){
     runSequence(
         'clean',
+        'media',
         'apply-prod-environment',
         'browserify',
         'sass',

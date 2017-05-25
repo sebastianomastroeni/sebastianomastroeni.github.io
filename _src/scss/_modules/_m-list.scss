@@ -22,7 +22,7 @@
     }
     @include breakpoint($tablet) {
         font-size: rem(20);
-        padding: rem(10) rem(12);
+        padding: rem(10) rem(20);
         transform: translate(-50%,100px);
     }
     // @include breakpoint($wide) {
@@ -32,7 +32,7 @@
     // }
     @include breakpoint($large) {
         font-size: rem(48);
-        padding: rem(25) rem(38);
+        padding: rem(25) rem(50);
         transform: translate(-50%,250px);
     }
     &:active {
@@ -80,17 +80,37 @@
         a {
             text-decoration: none;
             color: map-get($colors,black);
-            font-weight: 700;
-            display: block;
-            overflow: hidden;
-            &:hover,&:active {
-                text-decoration: line-through;
+            font-weight: 900;
+            vertical-align: baseline;
+            position: relative;
+            @include breakpoint($tablet) {
+                display: inline-block;
             }
-            br {
+            &:after {
+                content: '';
+                position: absolute;
+                top: 50%;
                 display: none;
-                @include breakpoint($desktop + 1) {
-                    display: inline;
+                transform: translateY(50%);
+                background: currentColor;
+                left: 1%;
+                right: 1%;
+                height: 3px;
+            }
+            &:hover,&:active {
+                // text-decoration: line-through;
+                // border-bottom: none;
+                &:after {
+                    @include breakpoint($desktop) {
+                        display: block;
+                    }
                 }
+            }
+        }
+        br {
+            display: none;
+            @include breakpoint($desktop + 1) {
+                display: inline;
             }
         }
 

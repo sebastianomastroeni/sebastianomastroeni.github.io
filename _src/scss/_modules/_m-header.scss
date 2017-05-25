@@ -1,6 +1,7 @@
 .m-header {
     padding: 10vh 0 0 9vw;
     position: absolute;
+    z-index: 2;
     left: 0;
     top: 0;
     &__title {
@@ -21,5 +22,11 @@
         @include breakpoint($large) {
             font-size: rem(50);
         }
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit;
+        text-decoration: underline;
     }
 }   

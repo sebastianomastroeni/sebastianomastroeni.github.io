@@ -1,9 +1,9 @@
 # Site settings
-title: Sebastiano
+title: "Sebastiano Mastroeni - Super project director"
 retailer: Sebastiano
-description: "Sebastiano Mastroeni - Super project director"
+description: "discover what Sebastiano Mastroeni does in a couple of clicks"
 baseurl: ""
-url: ""
+url: "http://www.sebastianomastroeni.com"
 
 # Build settings
 markdown: kramdown

@@ -4,10 +4,8 @@ layout: default
 <div class="m-list-wrapper">
     <ul class="m-list"> 
         {% for link in site.data.links %}
-            <li class="m-list__item {% if forloop.first %} show {% endif %}">
-                <a target="_blank" href="{{link.url}}">{{link.text}}</a>
-            </li>
+            <li class="m-list__item">{{link}}</li>
         {% endfor %} 
     </ul>
-    <span class="m-list-cta">Tell Me More</span>
+    <span class="m-list-cta">One More</span>
 </div> 

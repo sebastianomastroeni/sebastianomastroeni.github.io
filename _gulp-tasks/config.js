@@ -12,11 +12,13 @@ var config = {
     dev: makePath(basedir + '_src/', {
         root: '',
         sass: 'scss/',
+        media: 'img/',
         js: 'js/'
     }),
     prod: makePath(basedir+ 'assets/', {
         root: '',
         css: 'css/',
+        media: 'img/',
         js: 'js/',
     }),
     isProduction : function() {
