@@ -98,8 +98,6 @@
                 height: 3px;
             }
             &:hover,&:active {
-                // text-decoration: line-through;
-                // border-bottom: none;
                 &:after {
                     @include breakpoint($desktop) {
                         display: block;
