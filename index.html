@@ -4,7 +4,7 @@ layout: default
 <div class="m-list-wrapper">
     <ul class="m-list"> 
         {% for link in site.data.links %}
-            <li class="m-list__item">{{link}}</li>
+            <li class="m-list__item" data-slug="{{forloop.index0}}">{{link}}</li>
         {% endfor %} 
     </ul>
     <span class="m-list-cta">One More</span>
