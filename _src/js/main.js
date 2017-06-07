@@ -6,11 +6,13 @@ window.onload = function() {
         index;
 
     if(hash === undefined) {
-        index = Math.round(Math.random()*items.length-1);
+        index = Math.round(Math.random()*(items.length-1));
+        console.log(index)
         window.location.hash = items[index].getAttribute('data-slug');
     } else {
         index = hash;
     }
+
 
     items[index].classList.add('show');
     
@@ -28,9 +30,13 @@ window.onload = function() {
     });
 
     window.addEventListener("hashchange", e => {
-        items[index].classList.remove('show');
+        index && items[index].classList.remove('show');
         index = window.location.hash.split('#')[1];
-        items[index].classList.add('show');
+        if(index) {
+            items[index].classList.add('show');
+        } else {
+            window.location.hash  = Math.round(Math.random()*(items.length-1));
+        }
     });
 
     [].forEach.call(links,link => {
