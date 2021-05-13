@@ -91,12 +91,13 @@
                 content: '';
                 position: absolute;
                 top: 50%;
-                display: none;
+                display: block;
                 transform: translateY(50%);
-                background: currentColor;
+                background: #000;
                 left: 1%;
                 right: 1%;
                 height: 3px;
+                width: 100%
             }
             &:hover,&:active {
                 &:after {
