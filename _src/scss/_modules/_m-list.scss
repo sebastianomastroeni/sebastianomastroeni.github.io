@@ -91,7 +91,7 @@
                 content: '';
                 position: absolute;
                 top: 50%;
-                display: block;
+                display: none;
                 transform: translateY(50%);
                 background: #000;
                 left: 1%;
@@ -129,5 +129,5 @@
     background-color: #000;
     left: 0;
     top: 20px;
-    display: block!important;
+    display: none!important;
 }
