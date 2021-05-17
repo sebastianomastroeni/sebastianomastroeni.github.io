@@ -134,3 +134,6 @@
 }
 
 .m-list__item a:after { content: none!important;}
+.m-list__item a:hover:after, .m-list__item a:active:after {
+    display: none!important;
+}
