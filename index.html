@@ -1,6 +1,13 @@
 ---
 layout: default
 ---
+<style>
+    .m-list__item a:after { content: none!important;}
+.m-list__item a:hover:after, .m-list__item a:active:after {
+    display: none!important;
+}
+</style>
+
 <div class="m-list-wrapper">
     <ul class="m-list"> 
         {% for link in site.data.links %}
